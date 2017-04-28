@@ -5,7 +5,7 @@ Plugin URI: http://xenomorph.net/
 Description: This list child pages (and has optional configuration). Add "[list_subpages]" to list the current page's child objects.
 Author: Nicholas Caito
 Author URI: http://xenomorph.net/
-Version: 0.3.0
+Version: 0.3.5
 */
 
 // ----------
@@ -63,19 +63,19 @@ function list_pages_shortcode( $atts ) {
 	$args = array(
 		'depth'		=> $depth,
 		'child_of'	=> $parent,
-		'title_li'	=> $title,
+		'title_li'	=> false,
 		'echo'		=> 0,
 		'sort_column'	=> 'post_title',
 		'sort_order'	=> $sort
 	);
  
-	// if there is a title, remove its margin and bullet
-	if ( $title ) {
-	return "<ul style=\"margin-left: inherit; list-style: none;\">" . wp_list_pages( $args ) . "</ul>";
-	} else {
-		// if no title, display the list as normal 
-		return "<ul>" . wp_list_pages( $args ) . "</ul>";
-	}
+    // don't use wordpress's title
+    if ( $title ) {
+        return "<li style=\"margin-left: -1em; font-weight: bold; list-style: none;\">$title</li>" . wp_list_pages( $args );
+    } else {
+        // if no title, display the list as normal
+        return wp_list_pages( $args );
+    }
 }
 
 // add the shortcode
