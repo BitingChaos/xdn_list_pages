@@ -4,8 +4,8 @@ Author: Nicholas Caito
 Donate link: http://xenomorph.net/
 Tags: child, list, pages, menu, simple
 Requires at least: 4.0
-Tested up to: 4.5
-Stable tag: 0.3.0
+Tested up to: 4.7
+Stable tag: 0.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,10 @@ e.g.
 * None!
 
 == Changelog ==
+
+= 0.3.5 =
+* use own list title instead of the one WordPress adds
+* no longer include <ul> formatting.
 
 = 0.3.0 =
 * changed 'post_parent' parameter to just 'parent'
